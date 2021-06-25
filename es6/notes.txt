@@ -1,0 +1,21 @@
+Before we dive in, it should be noted that there are multiple ways 
+of implementing modules depending on the runtime environment in which your code is executed. 
+In JavaScript, there are two runtime environments and each has a preferred module implementation:
+
+# The Node runtime environment and the module.exports and require() syntax.
+# The browser’s runtime environment and the ES6 import/export syntax.
+
+This article will focus on using the ES6 import/export syntax in a browser’s runtime environment. 
+For more information, you can read the articles linked below.
+
+ES6 
+    export { resourceToExportA, resourceToExportB, ...}
+
+    /* dom-functions.js */
+    export const toggleHiddenElement = (domElement) => {
+    // logic omitted...
+    }
+    import { exportedResourceA, exportedResourceB } from '/path/to/module.js';
+    
+    /* secret-messages.js */
+    import { toggleHiddenElement, changeToFunkyColor } from '../modules/dom-functions.js';

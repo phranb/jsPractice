@@ -1,0 +1,79 @@
+npm install babel-cli
+
+npm install babel-preset-env
+
+npm run build
+
+Before we can add Babel to our project directory, 
+we need to run npm init. The npm init command creates a 
+package.json file in the root directory.
+
+
+nstall Node Packages
+We use the 
+    npm install 
+    command to install new Node packages locally. 
+    The install command creates a folder called node_modules and 
+    copies the package files to it. The install command also 
+    installs all of the dependencies for the given package.
+
+To install Babel, we need to npm install two packages, 
+babel-cli and babel-preset-env. However, 
+npm installs over one hundred other packages 
+that are dependencies for Babel to run properly.
+
+We install Babel with the following two commands:
+
+$ npm install babel-cli -D
+$ npm install babel-preset-env -D
+The babel-cli package includes command line Babel tools, 
+and the babel-preset-env package has the code that maps any 
+JavaScript feature, ES6 and above (ES6+), to ES5.
+
+The -D flag instructs npm to add each package to a property 
+called devDependencies 
+in package.json. Once the project’s dependencies are listed 
+in devDependencies, other developers can run your 
+project without installing each package separately. 
+Instead, they can simply 
+    run npm install 
+    — it instructs npm to look inside package.json and 
+    download all of the packages listed in devDependencies.
+
+.babelrc
+Now that you’ve downloaded the Babel packages, you need to specify the version 
+of the source JavaScript code.
+
+You can specify the initial JavaScript version inside of a file named .babelrc.
+ In your root directory, you can run touch .babelrc to create this file.
+
+Your project directory contains the following folders and files:
+
+project
+|_ node_modules
+|___ .bin
+|___ ...
+|_ src
+|___ main.js
+|_ .babelrc
+|_ package.json
+Inside .babelrc you need to define the preset 
+for your source JavaScript file. The preset specifies the version of your 
+initial JavaScript file.
+
+Usually, you want to transpile JavaScript code from versions ES6 and later 
+(ES6+) to ES5. From this point on, we will refer to our source code as ES6+, 
+because Ecma introduces new syntax with each new version of JavaScript.
+
+To specify that we are transpiling code from an ES6+ source, 
+we have to add the following JavaScript object into .babelrc:
+
+{
+  "presets": ["env"]
+}
+When you run Babel, it looks in .babelrc to determine the version 
+of the initial JavaScript file. In this case, ["env"] instructs Babel to 
+transpile any code from versions ES6 and later.
+
+after setting build in package.json 
+npm run build
